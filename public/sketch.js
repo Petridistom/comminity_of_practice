@@ -1,23 +1,31 @@
 document.body.style.margin = 0
 document.body.style.overflow = 'hidden'
 
-const cnv = document.createElement('canvas');
-cnv.width  = window.innerWidth
-cnv.height = window.innerHeight
-document.body.appendChild(cnv)
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  noStroke ()
+  frameRate (24)
+}
 
-const ctx = cnv.getContext('2d')
+function draw() {
+  background(0);
+  
+  let sig = sin (frameCount * TWO_PI / 360) 
+  // (360 / 24 fps) = 15s seconds per breath cycle
+  
+  sig += 1   // [ 000 , 002]
+  sig *= 500 // [ 000 , 1000]
+  sig += 10  // [ 010 , 1010]
+  
+  // console.log(sig) // check the size of the ball
+  
+  fill('deeppink')
+  drawingContext.shadowBlur = 128;
+  drawingContext.shadowColor = 'deeppink'
+  
+  circle ( width / 2, windowHeight, sig)
+}
 
-
-requestAnimationFrame (draw_frame)
-
-function draw_frame () {
-
-    // draw the background
-    ctx.fillStyle = 'turquoise'
-    ctx.fillRect (0, 0, cnv.width, cnv.height)
-
-
-    
-    requestAnimationFrame(draw_frame)
+function windowResized () {
+    resizeCanvas (window.innerWidth, window.innerHeight)
 }
