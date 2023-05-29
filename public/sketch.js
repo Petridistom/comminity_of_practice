@@ -8,20 +8,18 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(234, 221, 202);
   
   let sig = sin (frameCount * TWO_PI / 360) // [ 0, 1 ]
-  console.log(sig)
-  // (360 / 24 fps) = 15s seconds per breath cycle
   
   sig += 1   // [ 000 , 002]
   sig *= 500 // [ 000 , 1000]
   sig += 10  // [ 010 , 1010]
     
-  fill('deeppink')
+  fill(210, 125, 45)
 
-  drawingContext.shadowBlur = 128;
-  drawingContext.shadowColor = 'deeppink'
+  drawingContext.shadowBlur = 2048;
+  drawingContext.shadowColor = 'rgb(210, 125, 45)'
 
   circle ( width / 2, windowHeight, sig)
 }
