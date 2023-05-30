@@ -11,7 +11,7 @@ function draw() {
   background(234, 221, 202);
   
   // defines a variable sig, to hold the radius of the ball
-  let sig = sin (frameCount * TWO_PI / 360) // [ 0, 1 ]
+  let sig = sin (frameCount * TWO_PI / 360) // [ -1, 1 ]
   
   // change the rage of the radius sig 
   sig += 1   // [ 000 , 002]
